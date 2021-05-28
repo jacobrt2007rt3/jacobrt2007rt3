@@ -1,0 +1,268 @@
+-- Gui to Lua
+-- Version: 3.2
+
+-- Instances:
+
+local intro = Instance.new("ScreenGui")
+local Main = Instance.new("Frame")
+local TextLabel = Instance.new("TextLabel")
+local TextLabel_2 = Instance.new("TextLabel")
+local TextLabel_3 = Instance.new("TextLabel")
+local secx = Instance.new("TextLabel")
+
+--Properties:
+
+intro.Name = "intro"
+intro.Parent = game.CoreGui
+intro.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+Main.Parent = intro
+Main.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Main.BackgroundTransparency = 0.540
+Main.Position = UDim2.new(0.335779816, 0, 0.143426299, 0)
+Main.Size = UDim2.new(0, 490, 0, 311)
+Main.Active = true
+
+TextLabel.Parent = Main
+TextLabel.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel.BackgroundTransparency = 0.300
+TextLabel.Size = UDim2.new(0, 490, 0, 50)
+TextLabel.Font = Enum.Font.Cartoon
+TextLabel.Text = "created by "
+TextLabel.TextColor3 = Color3.fromRGB(255, 0, 0)
+TextLabel.TextScaled = true
+TextLabel.TextSize = 14.000
+TextLabel.TextWrapped = true
+
+TextLabel_2.Parent = Main
+TextLabel_2.BackgroundColor3 = Color3.fromRGB(86, 86, 86)
+TextLabel_2.BackgroundTransparency = 0.400
+TextLabel_2.Position = UDim2.new(0, 0, 0.241157562, 0)
+TextLabel_2.Size = UDim2.new(0, 200, 0, 50)
+TextLabel_2.Font = Enum.Font.SourceSans
+TextLabel_2.Text = "Danielk"
+TextLabel_2.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_2.TextScaled = true
+TextLabel_2.TextSize = 14.000
+TextLabel_2.TextWrapped = true
+
+TextLabel_3.Parent = Main
+TextLabel_3.BackgroundColor3 = Color3.fromRGB(86, 86, 86)
+TextLabel_3.BackgroundTransparency = 0.700
+TextLabel_3.Position = UDim2.new(0, 0, 0.839228272, 0)
+TextLabel_3.Size = UDim2.new(0, 490, 0, 50)
+TextLabel_3.Font = Enum.Font.SourceSans
+TextLabel_3.Text = "Discord: Danielk#9033"
+TextLabel_3.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_3.TextScaled = true
+TextLabel_3.TextSize = 14.000
+TextLabel_3.TextStrokeTransparency = 0.000
+TextLabel_3.TextWrapped = true
+
+secx.Name = "secx"
+secx.Parent = Main
+secx.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+secx.BackgroundTransparency = 1.000
+secx.Position = UDim2.new(0.504081607, 0, 0.241157562, 0)
+secx.Size = UDim2.new(0, 211, 0, 153)
+secx.Font = Enum.Font.SourceSans
+secx.Text = "this disappear in 5 seconds"
+secx.TextColor3 = Color3.fromRGB(255, 0, 0)
+secx.TextScaled = true
+secx.TextSize = 14.000
+secx.TextStrokeTransparency = 0.000
+secx.TextWrapped = true
+wait(5)
+Main.Visible = false
+
+local Prisonlife = Instance.new("ScreenGui")
+local Open = Instance.new("TextButton")
+local Frame = Instance.new("Frame")
+local Text = Instance.new("TextLabel")
+local Day = Instance.new("TextButton")
+local Normal = Instance.new("TextButton")
+local speed_text = Instance.new("TextLabel")
+local exit = Instance.new("TextButton")
+local clock_text = Instance.new("TextLabel")
+local Speed = Instance.new("TextButton")
+local Night = Instance.new("TextButton")
+local Break = Instance.new("TextButton")
+local special_text = Instance.new("TextLabel")
+
+--Properties:
+
+Prisonlife.Name = "Prison life"
+Prisonlife.Parent = game.CoreGui
+Prisonlife.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+Frame.Parent = Prisonlife
+Frame.BackgroundColor3 = Color3.fromRGB(72, 72, 72)
+Frame.Position = UDim2.new(0.172477067, 0, 0.153386459, 0)
+Frame.Size = UDim2.new(0, 336, 0, 370)
+Frame.Active = true
+Frame.Visible = false
+
+Open.Name = "Open"
+Open.Parent = Prisonlife
+Open.BackgroundColor3 = Color3.fromRGB(44, 44, 44)
+Open.BackgroundTransparency = 0.200
+Open.Position = UDim2.new(0, 0, 0.647410333, 0)
+Open.Size = UDim2.new(0, 170, 0, 50)
+Open.Font = Enum.Font.Cartoon
+Open.Text = "Open"
+Open.TextColor3 = Color3.fromRGB(255, 255, 255)
+Open.TextSize = 34.000
+Open.TextWrapped = true
+Open.MouseButton1Click:connect(function()
+	Frame.Visible = true
+end)
+
+
+Text.Name = "Text"
+Text.Parent = Frame
+Text.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Text.BackgroundTransparency = 0.200
+Text.Position = UDim2.new(0, 0, -0.15691489, 0)
+Text.Size = UDim2.new(0, 336, 0, 59)
+Text.Font = Enum.Font.SourceSans
+Text.Text = "Prison Life"
+Text.TextColor3 = Color3.fromRGB(255, 255, 255)
+Text.TextScaled = true
+Text.TextSize = 14.000
+Text.TextWrapped = true
+
+Day.Name = "Day"
+Day.Parent = Frame
+Day.BackgroundColor3 = Color3.fromRGB(53, 53, 53)
+Day.Position = UDim2.new(0.0565476194, 0, 0.44932431, 0)
+Day.Size = UDim2.new(0, 133, 0, 51)
+Day.Text = "Super Jump"
+Day.TextColor3 = Color3.fromRGB(255, 0, 0)
+Day.TextSize = 14.000
+Day.MouseButton1Click:connect(function()
+		game.Players.LocalPlayer.Character.Humanoid.JumpPower = 150
+end)
+
+Normal.Name = "Normal"
+Normal.Parent = Frame
+Normal.BackgroundColor3 = Color3.fromRGB(53, 53, 53)
+Normal.Position = UDim2.new(0.544642866, 0, 0.125, 0)
+Normal.Size = UDim2.new(0, 133, 0, 50)
+Normal.Text = "Normal"
+Normal.TextColor3 = Color3.fromRGB(255, 0, 0)
+Normal.TextSize = 14.000
+Normal.MouseButton1Click:connect(function()
+	game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 16
+end)
+
+speed_text.Name = "speed_text"
+speed_text.Parent = Frame
+speed_text.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+speed_text.BackgroundTransparency = 2.000
+speed_text.Position = UDim2.new(-0.116071425, 0, -0.0212765951, 0)
+speed_text.Size = UDim2.new(0, 181, 0, 45)
+speed_text.Font = Enum.Font.SourceSans
+speed_text.Text = "Speed:"
+speed_text.TextColor3 = Color3.fromRGB(255, 255, 255)
+speed_text.TextSize = 28.000
+speed_text.TextWrapped = true
+
+exit.Name = "exit"
+exit.Parent = Frame
+exit.BackgroundColor3 = Color3.fromRGB(70, 70, 70)
+exit.BackgroundTransparency = 2.000
+exit.Position = UDim2.new(0.881434381, 0, -0.164143428, 0)
+exit.Size = UDim2.new(0, 39, 0, 58)
+exit.Font = Enum.Font.SourceSans
+exit.Text = "X"
+exit.TextColor3 = Color3.fromRGB(255, 0, 0)
+exit.TextScaled = true
+exit.TextSize = 14.000
+exit.TextWrapped = true
+exit.MouseButton1Click:connect(function()
+	Frame.Visible = false
+end)
+
+clock_text.Name = "clock_text"
+clock_text.Parent = Frame
+clock_text.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+clock_text.BackgroundTransparency = 2.000
+clock_text.Position = UDim2.new(-0.116071433, 0, 0.28918916, 0)
+clock_text.Size = UDim2.new(0, 200, 0, 50)
+clock_text.Font = Enum.Font.SourceSans
+clock_text.Text = "Jump:"
+clock_text.TextColor3 = Color3.fromRGB(255, 255, 255)
+clock_text.TextSize = 28.000
+
+Speed.Name = "Speed"
+Speed.Parent = Frame
+Speed.BackgroundColor3 = Color3.fromRGB(53, 53, 53)
+Speed.Position = UDim2.new(0.0565476194, 0, 0.125, 0)
+Speed.Size = UDim2.new(0, 133, 0, 50)
+Speed.Text = "Speed"
+Speed.TextColor3 = Color3.fromRGB(255, 0, 0)
+Speed.TextSize = 14.000
+Speed.MouseButton1Click:connect(function()
+	game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 100
+end)
+
+Night.Name = "Night"
+Night.Parent = Frame
+Night.BackgroundColor3 = Color3.fromRGB(53, 53, 53)
+Night.Position = UDim2.new(0.571428597, 0, 0.44932431, 0)
+Night.Size = UDim2.new(0, 124, 0, 51)
+Night.Text = "Normal Jump"
+Night.TextColor3 = Color3.fromRGB(255, 0, 0)
+Night.TextSize = 14.000
+Night.MouseButton1Click:connect(function()
+		game.Players.LocalPlayer.Character.Humanoid.JumpPower = 50
+end)
+
+Break.Name = "Break"
+Break.Parent = Frame
+Break.BackgroundColor3 = Color3.fromRGB(53, 53, 53)
+Break.Position = UDim2.new(0.300595224, 0, 0.741216183, 0)
+Break.Size = UDim2.new(0, 133, 0, 51)
+Break.Text = "Break door"
+Break.TextColor3 = Color3.fromRGB(255, 0, 0)
+Break.TextSize = 14.000
+Break.MouseButton1Click:connect(function()
+	porta = game.Workspace.Doors
+    :Destroy(porta)
+end)
+special_text.Name = "special_text"
+special_text.Parent = Frame
+special_text.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+special_text.BackgroundTransparency = 2.000
+special_text.Position = UDim2.new(-0.116071425, 0, 0.619263947, 0)
+special_text.Size = UDim2.new(0, 181, 0, 45)
+special_text.Font = Enum.Font.SourceSans
+-- created by daniel
+-- discord: Danielk#9033
+
+special_text.Text = "Special:"
+special_text.TextColor3 = Color3.fromRGB(255, 255, 255)
+special_text.TextSize = 28.000
+special_text.TextWrapped = true
+
+local creditos = Instance.new("ScreenGui")
+local creditos_2 = Instance.new("TextLabel")
+
+creditos.Name = "creditos"
+creditos.Parent = game.CoreGui
+creditos.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+creditos_2.Name = "creditos"
+creditos_2.Parent = creditos
+creditos_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+creditos_2.BackgroundTransparency = 2.000
+creditos_2.Position = UDim2.new(0.743895054, 0, 0.900398433, 0)
+creditos_2.Size = UDim2.new(0, 304, 0, 50)
+creditos_2.Text = "created by Danielk#9033"
+creditos_2.TextColor3 = Color3.fromRGB(255, 255, 255)
+creditos_2.TextScaled = true
+creditos_2.TextSize = 14.000
+creditos_2.TextStrokeColor3 = Color3.fromRGB(255, 0, 0)
+creditos_2.TextWrapped = true
+creditos_2.Visible = true
+creditos_2.TextStrokeTransparency = 0
