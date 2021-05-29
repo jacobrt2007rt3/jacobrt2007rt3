@@ -1,0 +1,54 @@
+local plr = game.Players.LocalPlayer
+local camera = game.Workspace.CurrentCamera
+local UIS = game.UserInputService
+local mouse = plr:GetMouse()
+local LOCKON = "Head"
+_G.aim = false
+
+UIS.InputBegan:Connect(function(input)
+    if input.UserInputType == Enum.UserInputType.MouseButton2 then
+        _G.aim = true
+    end
+end)
+
+UIS.InputEnded:Connect(function(input)
+    if input.UserInputType == Enum.UserInputType.MouseButton2 then
+        _G.aim = false
+    end
+end)
+
+local FOV = Drawing.new("Circle") -- Change these ESP Settings to anything at https://x.synapse.to/docs/reference/drawing_lib.html
+FOV.Visible = true
+FOV.Color = Color3.fromRGB(255, 0, 0)
+FOV.Thickness = 2
+FOV.NumSides = 100
+FOV.Radius = 125
+FOV.Filled = false
+
+game:GetService("RunService").RenderStepped:Connect(function()
+    local closest = nil
+    local min = math.huge
+    FOV.Position = Vector2.new(camera.ViewportSize.X/2, camera.ViewportSize.Y/2)
+    if _G.aim == true then
+        for i, v in pairs(game.Players:GetChildren()) do
+            if v.TeamColor ~= plr.TeamColor then
+                if game.Players:FindFirstChild(v.Name) and v.Character ~= nil and v.Character:FindFirstChild("Humanoid") ~= nil and v.Character:FindFirstChild("HumanoidRootPart") ~= nil and v.Name ~= plr.Name  and v.Character.Humanoid.Health > 0 then
+                    local plrpos, OnScreen = camera:WorldToViewportPoint(v.Character[LOCKON].Position)
+                    if OnScreen then
+                        local distance = math.sqrt(math.pow(mouse.X - plrpos.X, 2), math.pow(mouse.Y - plrpos.Y, 2))
+                        local fovdistance = math.sqrt(math.pow(FOV.Position.X - plrpos.X, 2) + math.pow(FOV.Position.Y - plrpos.Y, 2))
+                        if fovdistance <= FOV.Radius then
+                            if distance < min then
+                                min = distance
+                                closest = v
+                            end
+                        end
+                    end
+                end
+            end
+        end
+        if game.Players:FindFirstChild(closest.Name) and closest.Character ~= nil and closest.Character:FindFirstChild("Humanoid") ~= nil and closest.Character:FindFirstChild("HumanoidRootPart") ~= nil and closest.Name ~= plr.Name  and closest.Character.Humanoid.Health > 0 then
+            camera.CFrame = CFrame.new(camera.CFrame.Position, closest.Character[LOCKON].CFrame.Position)
+        end
+    end
+end)
