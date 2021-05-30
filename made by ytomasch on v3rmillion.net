@@ -1,0 +1,8 @@
+local function rp(txt) writeconsole(txt, Color3.new(0,0,0)) end
+keepheal = true rp("God Mode By Sciptr Started.")  -- God Mode Sciptr
+while keepheal == true do
+wait()
+game.Workspace.Remote.ChangeValue:FireServer(game.Players.LocalPlayer.playerstats.Thirst,100)
+game.Workspace.Remote.ChangeValue:FireServer(game.Players.LocalPlayer.playerstats.Hunger,100)
+game.Workspace.Remote.AddHealth:FireServer(game.Players.LocalPlayer.Character.Humanoid,100)
+end rp("God Mode Ended.")
