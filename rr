@@ -1,0 +1,34 @@
+-- Apocalypse Rising Infinite Ammo Script by wallythemad @ v3rmillion.net
+local client = game:GetService("Players").LocalPlayer
+local ammo_ammount = 10
+
+local fillers = {"a","B","i","P","Y","S"}
+local alphabet = {"A","C","d","g","L","p","s","T","Z"}
+local obfuscate = function(val)
+  local newval = ""
+  val = tostring(val)
+  
+  for _ = 1, 10 - string.len(val) do
+      newval = fillers[math.random(1,6)] .. newval
+  end
+  
+  for d = 1, string.len(val) do
+      local num = tonumber(string.sub(val,d,d))
+      if num > 0 then
+          newval = newval .. alphabet[num]
+      else
+          newval = newval .. fillers[math.random(1,6)]
+      end
+  end
+  
+  return newval 
+end
+
+for k, v in next, client.playerstats.slots:GetChildren() do
+  if v:FindFirstChild("ObjectID") then
+      if v:FindFirstChild("ObjectID"):FindFirstChild("Clip") then -- ure clip l0l
+          v.ObjectID.Clip.MaxClip.Value = ammo_ammount -- max amount the clip will hold; bypasses the ammo check
+          v.ObjectID.Clip.Value = obfuscate(ammo_ammount) -- amount in the actual clip
+      end
+  end
+end
